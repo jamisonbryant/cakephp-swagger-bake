@@ -101,7 +101,7 @@ class Configuration
     public function __construct(array $config = [], string $root = ROOT)
     {
         $this->root = $root;
-        $config = !empty($config) ? $config : Configure::read('SwaggerBake');
+        $config = !empty($config) ? $config : Configure::readOrFail('SwaggerBake');
 
         foreach (['yml', 'json', 'webPath', 'prefix'] as $property) {
             if (!array_key_exists(key: $property, array: $config)) {
